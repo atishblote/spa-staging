@@ -479,6 +479,7 @@ export interface PluginUsersPermissionsUser
         },
         number
       >;
+    areas: Schema.Attribute.Relation<'manyToMany', 'api::area.area'>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -604,6 +605,11 @@ export interface ApiAreaArea extends Struct.CollectionTypeSchema {
       'manyToMany',
       'api::all-listing.all-listing'
     >;
+    users_permissions_users: Schema.Attribute.Relation<
+      'manyToMany',
+      'plugin::users-permissions.user'
+    >;
+    location: Schema.Attribute.Relation<'manyToOne', 'api::location.location'>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -802,6 +808,7 @@ export interface ApiLocationLocation extends Struct.CollectionTypeSchema {
       'manyToMany',
       'api::all-listing.all-listing'
     >;
+    areas: Schema.Attribute.Relation<'oneToMany', 'api::area.area'>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -881,7 +888,7 @@ export interface ApiTypeType extends Struct.CollectionTypeSchema {
     price: Schema.Attribute.Decimal & Schema.Attribute.Required;
     description: Schema.Attribute.String &
       Schema.Attribute.SetMinMaxLength<{
-        maxLength: 90;
+        maxLength: 110;
       }>;
     users_permissions_user: Schema.Attribute.Relation<
       'manyToOne',

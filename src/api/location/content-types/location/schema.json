@@ -36,6 +36,12 @@
       "relation": "manyToMany",
       "target": "api::all-listing.all-listing",
       "inversedBy": "locations"
+    },
+    "areas": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::area.area",
+      "mappedBy": "location"
     }
   }
 }

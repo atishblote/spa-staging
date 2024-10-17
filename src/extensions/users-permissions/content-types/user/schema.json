@@ -82,6 +82,12 @@
       "required": true,
       "max": 10,
       "unique": false
+    },
+    "areas": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::area.area",
+      "mappedBy": "users_permissions_users"
     }
   }
 }

@@ -36,6 +36,18 @@
       "relation": "manyToMany",
       "target": "api::all-listing.all-listing",
       "inversedBy": "areas"
+    },
+    "users_permissions_users": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "areas"
+    },
+    "location": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::location.location",
+      "inversedBy": "areas"
     }
   }
 }
