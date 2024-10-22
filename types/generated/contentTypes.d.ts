@@ -471,13 +471,14 @@ export interface PluginUsersPermissionsUser
     >;
     cars: Schema.Attribute.Relation<'oneToMany', 'api::car.car'>;
     services: Schema.Attribute.Relation<'oneToMany', 'api::type.type'>;
-    mobile: Schema.Attribute.Integer &
+    mobile: Schema.Attribute.BigInteger &
       Schema.Attribute.Required &
+      Schema.Attribute.Unique &
       Schema.Attribute.SetMinMax<
         {
-          max: 10;
+          max: '10';
         },
-        number
+        string
       >;
     areas: Schema.Attribute.Relation<'manyToMany', 'api::area.area'>;
     createdAt: Schema.Attribute.DateTime;

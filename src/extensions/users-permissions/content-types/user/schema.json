@@ -78,10 +78,10 @@
       "mappedBy": "users_permissions_user"
     },
     "mobile": {
-      "type": "integer",
+      "type": "biginteger",
       "required": true,
-      "max": 10,
-      "unique": false
+      "max": "10",
+      "unique": true
     },
     "areas": {
       "type": "relation",
